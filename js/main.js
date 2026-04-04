@@ -58,36 +58,60 @@
         });
 
 
-        // Contact Form Submission
+        // Contact Form Submission via FormSubmit.co (works on static/GitHub Pages hosting)
         const contactForm = document.getElementById("contactForm");
         const responseBox = document.getElementById("formResponse");
+        const submitBtn   = document.getElementById("submitBtn");
 
         if (contactForm) {
             contactForm.addEventListener("submit", function (e) {
                 e.preventDefault();
 
+                // Validate required fields before sending
+                const name    = contactForm.querySelector('#name').value.trim();
+                const email   = contactForm.querySelector('#email').value.trim();
+                const subject = contactForm.querySelector('#subject').value.trim();
+                const message = contactForm.querySelector('#message').value.trim();
+
+                if (!name || !email || !subject || !message) {
+                    responseBox.className = "alert alert-danger mt-3";
+                    responseBox.textContent = "Por favor completa todos los campos requeridos.";
+                    return;
+                }
+
+                // Disable button to prevent double submissions
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.value = "Enviando...";
+                }
+
                 const formData = new FormData(contactForm);
 
-                fetch("submit-form.php", {
+                fetch("https://formsubmit.co/ajax/gianquinones21@gmail.com", {
                     method: "POST",
+                    headers: { "Accept": "application/json" },
                     body: formData
                 })
-                    .then(res => res.text())
-                    .then(data => {
-                        responseBox.classList.remove("d-none", "alert-danger");
-                        responseBox.classList.add("alert", "alert-success");
-                        responseBox.textContent = data || "¡Gracias! Tu mensaje ha sido enviado correctamente.";
-                        contactForm.reset();
+                .then(res => res.json())
+                .then(data => {
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.value = "Enviar Mensaje"; }
 
-                        setTimeout(() => {
-                            responseBox.classList.add("d-none");
-                        }, 5000);
-                    })
-                    .catch(err => {
-                        responseBox.classList.remove("d-none", "alert-success");
-                        responseBox.classList.add("alert", "alert-danger");
-                        responseBox.textContent = "Hubo un error al enviar el formulario.";
-                    });
+                    if (data.success === "true" || data.success === true) {
+                        responseBox.className = "alert alert-success mt-3";
+                        responseBox.textContent = "¡Gracias! Tu mensaje ha sido enviado correctamente. Te responderemos pronto.";
+                        contactForm.reset();
+                    } else {
+                        responseBox.className = "alert alert-danger mt-3";
+                        responseBox.textContent = data.message || "Hubo un error al enviar el formulario. Inténtalo de nuevo.";
+                    }
+
+                    setTimeout(() => responseBox.classList.add("d-none"), 6000);
+                })
+                .catch(() => {
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.value = "Enviar Mensaje"; }
+                    responseBox.className = "alert alert-danger mt-3";
+                    responseBox.textContent = "Hubo un error al enviar el formulario. Por favor inténtalo de nuevo.";
+                });
             });
         }
 

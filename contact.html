@@ -170,7 +170,14 @@
 
                         <!-- Contact Form -->
                         <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-                            <form id="contactForm" method="post" action="submit-form.php" enctype="multipart/form-data" novalidate>
+                            <form id="contactForm" method="post" action="https://formsubmit.co/gianquinones21@gmail.com" enctype="multipart/form-data" novalidate>
+
+                                <!-- FormSubmit configuration -->
+                                <input type="hidden" name="_subject" value="Nuevo Contacto — Mega Fresh Carolina">
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_template" value="table">
+                                <input type="hidden" name="_autoresponse" value="¡Gracias por contactar a Mega Fresh Carolina! Recibimos tu mensaje y te responderemos pronto.">
+
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating">
@@ -202,13 +209,13 @@
                                         <div class="file-upload" id="dropZone" role="button" tabindex="0" aria-label="Área de carga de archivos — haz clic o arrastra tus archivos aquí">
                                             <i class="fas fa-cloud-upload-alt upload-icon" aria-hidden="true"></i>
                                             <p class="upload-text">Adjunta tus archivos aquí</p>
-                                            <input type="file" id="attachment" name="attachment[]" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" multiple>
+                                            <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
                                             <small>Formatos permitidos: PDF, DOC, PNG, JPG</small>
                                         </div>
                                     </div>
 
                                     <div class="col-12 d-flex justify-content-center">
-                                        <input type="submit" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 w-100 fs-5" value="Enviar Mensaje">
+                                        <input type="submit" id="submitBtn" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 w-100 fs-5" value="Enviar Mensaje">
                                     </div>
                                     <div id="formResponse" class="d-none mt-3" role="alert"></div>
                                 </div>
