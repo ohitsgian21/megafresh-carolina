@@ -1,0 +1,162 @@
+/********** Navbar — Mega Fresh **********/
+
+/* Top info bar */
+.top-bar {
+    height: 45px;
+    background-color: var(--primary-dark, #A00000);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.top-bar small,
+.top-bar small i {
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* Sticky wrapper — keep brand red at all scroll positions */
+.fixed-top {
+    transition: box-shadow 0.3s ease;
+}
+.fixed-top.bg-white,
+.fixed-top.shadow {
+    background-color: transparent !important;
+}
+.fixed-top.shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Main navbar */
+nav.navbar {
+    background-color: var(--primary) !important;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Dropdown arrow */
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+/* Nav links */
+.navbar .navbar-nav .nav-link {
+    padding: 24px 14px;
+    color: rgba(255, 255, 255, 0.88);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 0.4px;
+    outline: none;
+    transition: color 0.2s ease;
+}
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: var(--yellow, #FFD000);
+}
+
+/* Dropdown menu */
+.navbar .dropdown-menu {
+    border: none;
+    border-top: 3px solid var(--primary);
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    padding: 8px 0;
+}
+.navbar .dropdown-menu .dropdown-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.84rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    color: #333;
+    transition: background 0.2s;
+}
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item.active {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+/* Mobile hamburger icon — white lines on red bg */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+    padding: 6px 10px;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255%2C255%2C255%2C0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ——— Brand Logo ——— */
+.mega-fresh-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.navbar-logo-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 7px;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+}
+.logo-text-block {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+.logo-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.52rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+.logo-location {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.92);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* ——— Mobile (≤991px) ——— */
+@media (max-width: 991.98px) {
+    nav.navbar {
+        padding: 12px 16px;
+    }
+
+    .navbar-brand {
+        flex: 1;
+    }
+
+    .navbar .navbar-nav {
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        background-color: var(--primary-dark, #A00000);
+        text-align: center;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        padding: 12px 0;
+        color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        width: 100%;
+    }
+
+    .navbar .navbar-nav .nav-link:hover,
+    .navbar .navbar-nav .nav-link.active {
+        color: var(--yellow, #FFD000);
+        background-color: rgba(0, 0, 0, 0.12);
+    }
+
+    .navbar-logo-img {
+        height: 42px;
+        width: 42px;
+    }
+    .logo-location {
+        font-size: 0.78rem;
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "name": "ohits/elmejor",
+    "description": "El Mejor Website",
+    "type": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "OhItsGian"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "phpmailer/phpmailer": "^7.0"
+    }
+}

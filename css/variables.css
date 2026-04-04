@@ -1,0 +1,64 @@
+/********** Variables — Mega Fresh Brand **********/
+:root {
+    --primary: #CC0000;
+    --primary-dark: #A00000;
+    --secondary: #1A1A1A;
+    --yellow: #FFD000;
+    --light: #F5F5F5;
+    --dark: #111111;
+    --white: #FFFFFF;
+}
+
+/* ——— Bootstrap utility overrides ——— */
+.bg-primary  { background-color: var(--primary)      !important; }
+.text-primary { color: var(--primary)                !important; }
+.border-primary { border-color: var(--primary)       !important; }
+
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color:     var(--primary) !important;
+    color: #fff !important;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--primary-dark) !important;
+    border-color:     var(--primary-dark) !important;
+    color: #fff !important;
+}
+
+.btn-secondary {
+    background-color: var(--secondary) !important;
+    border-color:     var(--secondary) !important;
+    color: #fff !important;
+}
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: #333 !important;
+    border-color:     #333 !important;
+    color: #fff !important;
+}
+
+.btn-outline-primary {
+    color:        var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+.btn-outline-primary:hover {
+    background-color: var(--primary) !important;
+    color: #fff !important;
+}
+
+/* Spinner */
+.spinner-border.text-primary { color: var(--primary) !important; }
+
+/* ——— Typography ——— */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+}
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3,
+.display-4, .display-5, .display-6,
+.navbar-brand, .brand-logo {
+    font-family: 'Montserrat', sans-serif;
+}

@@ -1,0 +1,342 @@
+[
+  {
+    "category": "Aceites",
+    "name": "Mazola Canola Aceite 96oz",
+    "price": "$9.39"
+  },
+  {
+    "category": "Aceites",
+    "name": "Mazola Corn Oil 96oz",
+    "price": "$9.39"
+  },
+  {
+    "category": "Aceites",
+    "name": "Mazola Corn Plus 96oz",
+    "price": "$9.39"
+  },
+  {
+    "category": "Aceites",
+    "name": "Mazola Vegetal Plus 96oz",
+    "price": "$9.39"
+  },
+  {
+    "category": "Bakery",
+    "name": "Goya Bacalaitos 4.5oz",
+    "price": "$2.19"
+  },
+  {
+    "category": "Bakery",
+    "name": "Holsum Club 24oz",
+    "price": "$3.69"
+  },
+  {
+    "category": "Bakery",
+    "name": "Holsum Hamburguer 8ct",
+    "price": "$2.79"
+  },
+  {
+    "category": "Bakery",
+    "name": "Holsum Hot Dog 8ct",
+    "price": "$2.79"
+  },
+  {
+    "category": "Bakery",
+    "name": "Holsum Integral 24oz",
+    "price": "$3.69"
+  },
+  {
+    "category": "Bakery",
+    "name": "Holsum Integral Blanco 24oz",
+    "price": "$3.69"
+  },
+  {
+    "category": "Cereales, Arroz y Pasta",
+    "name": "Arroz Rico Grano Mediano 3lb",
+    "price": "$2.85"
+  },
+  {
+    "category": "Cereales, Arroz y Pasta",
+    "name": "Goya Elbows #33 16oz",
+    "price": "$1.69"
+  },
+  {
+    "category": "Cereales, Arroz y Pasta",
+    "name": "Goya Lasagna #89 16oz",
+    "price": "$2.50"
+  },
+  {
+    "category": "Cereales, Arroz y Pasta",
+    "name": "Goya Penne Rigate #74 16oz",
+    "price": "$1.69"
+  },
+  {
+    "category": "Cereales, Arroz y Pasta",
+    "name": "Goya Rigatoni #29 16oz",
+    "price": "$1.69"
+  },
+  {
+    "category": "Cereales, Arroz y Pasta",
+    "name": "Goya Spaghetti #8 16oz",
+    "price": "$1.69"
+  },
+  {
+    "category": "Cereales, Arroz y Pasta",
+    "name": "Lipton Pollo 25% Menos Sal 7.2oz",
+    "price": "$3.49"
+  },
+  {
+    "category": "Cereales, Arroz y Pasta",
+    "name": "Lipton Sabor a Pollo 7.6oz",
+    "price": "$3.49"
+  },
+  {
+    "category": "Cuidado Personal",
+    "name": "Bounty ESS SAS 1 Rollo 108 ct",
+    "price": "$2.29"
+  },
+  {
+    "category": "Cuidado Personal",
+    "name": "Charmin Essentials Soft 6pk",
+    "price": "$6.15"
+  },
+  {
+    "category": "Cuidado Personal",
+    "name": "Charmin Essentials Strong 6pk",
+    "price": "$6.15"
+  },
+  {
+    "category": "Cuidado Personal",
+    "name": "Colgate Cavity Protection 4.0oz",
+    "price": "$2.29"
+  },
+  {
+    "category": "Cuidado Personal",
+    "name": "Gillette Cool Wave 3.8oz",
+    "price": "$5.39"
+  },
+  {
+    "category": "Cuidado Personal",
+    "name": "Gillette Gel Artic Ice 3.8oz",
+    "price": "$5.39"
+  },
+  {
+    "category": "Cuidado Personal",
+    "name": "Irish Spring Aloe Mist 3.7oz 3pk",
+    "price": "$3.69"
+  },
+  {
+    "category": "Cuidado Personal",
+    "name": "Irish Spring Classic 3.2oz 3pk",
+    "price": "$3.69"
+  },
+  {
+    "category": "Detergentes",
+    "name": "Senor Poderoso Detergente Ropa Oscura 50oz",
+    "price": "$2.89"
+  },
+  {
+    "category": "Detergentes",
+    "name": "Senor Poderoso Detergente Ultra",
+    "price": "$2.89"
+  },
+  {
+    "category": "Detergentes",
+    "name": "Senor Poderoso Suavizador Caricias 50oz",
+    "price": "$2.67"
+  },
+  {
+    "category": "Farmacia",
+    "name": "VapoRub Vicks 1.76oz",
+    "price": "$5.49"
+  },
+  {
+    "category": "Galletas",
+    "name": "Aviva Soda Crackers 19oz",
+    "price": "$4.87"
+  },
+  {
+    "category": "GROCERY",
+    "name": "Goya Tropical Fruit Punch 33.8oz",
+    "price": "$1.85"
+  },
+  {
+    "category": "Jugos",
+    "name": "Goya Agua de Coco 11.8oz",
+    "price": "$1.25"
+  },
+  {
+    "category": "Jugos",
+    "name": "Goya Guava 33.8oz",
+    "price": "$1.85"
+  },
+  {
+    "category": "Jugos",
+    "name": "Goya Mango 33.8oz",
+    "price": "$1.85"
+  },
+  {
+    "category": "Jugos",
+    "name": "Goya Manzana 33.8oz",
+    "price": "$1.85"
+  },
+  {
+    "category": "Jugos",
+    "name": "Goya Pera 33.8oz",
+    "price": "$1.85"
+  },
+  {
+    "category": "Jugos",
+    "name": "Goya Prisma Piña y Guayaba 33.8oz",
+    "price": "$1.85"
+  },
+  {
+    "category": "Jugos",
+    "name": "Goya Tamarindo 33.8oz",
+    "price": "$1.85"
+  },
+  {
+    "category": "Jugos",
+    "name": "Ocean Spray Cranberry 64oz",
+    "price": "$3.89"
+  },
+  {
+    "category": "Jugos",
+    "name": "Ocean Spray Cranberry 64oz",
+    "price": "$3.89"
+  },
+  {
+    "category": "Lacteos y Derivados",
+    "name": "Ocean Spray White Cranberry 64oz",
+    "price": "$3.89"
+  },
+  {
+    "category": "Limpieza",
+    "name": "Elitar Trash Bags 13gal 15pk",
+    "price": "$1.99"
+  },
+  {
+    "category": "Limpieza",
+    "name": "Elitar Trash Bags 30gal 10pk",
+    "price": "$1.33"
+  },
+  {
+    "category": "Limpieza",
+    "name": "Poderoso Lavaplatos Ultra Limon",
+    "price": "$1.79"
+  },
+  {
+    "category": "Limpieza",
+    "name": "Senor Poderoso Bebe 30oz",
+    "price": "$1.09"
+  },
+  {
+    "category": "Limpieza",
+    "name": "Senor Poderoso Cloro 62.5oz",
+    "price": "$1.69"
+  },
+  {
+    "category": "Limpieza",
+    "name": "Senor Poderoso Detergente con Cloro 50oz",
+    "price": "$2.89"
+  },
+  {
+    "category": "Limpieza",
+    "name": "Senor Poderoso Lavanda 30oz",
+    "price": "$1.09"
+  },
+  {
+    "category": "Productos Congelados",
+    "name": "Agrosuper Alitas de Pollo 5lbs",
+    "price": "$12.99"
+  },
+  {
+    "category": "Productos Congelados",
+    "name": "AgroSuper Chicken Breast 2.2lbs",
+    "price": "$9.69"
+  },
+  {
+    "category": "Productos Congelados",
+    "name": "Numar Tilapia Filete 16oz",
+    "price": "$4.69"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Campbells Beef Consomme 10.5oz",
+    "price": "$2.19"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Campbells Vegetable Soup 10.5oz",
+    "price": "$1.75"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Campbells Vegetarian Vegetable 10.75oz",
+    "price": "$1.75"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Chef Boyardee Beef Ravioli 14.5oz",
+    "price": "$1.59"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Chef Boyardee Beefaroni 14.5oz",
+    "price": "$1.59"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Chef Boyardee Lasagna 14.5oz",
+    "price": "$1.59"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Goya Aceitunas Manzanillas Rellenas 6.75oz",
+    "price": "$2.67"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Goya Alcaparrado Bajos en Sodio 7oz",
+    "price": "$2.69"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Goya Alcaparrado con Pimientos 8oz",
+    "price": "$2.69"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Goya Alcaparrado Olives 7oz",
+    "price": "$2.69"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Goya Condimento Bajo en Sodio 7oz",
+    "price": "$2.69"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Goya Gandules Verdes 15oz",
+    "price": "$1.50"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Goya Leche de Coco 13.5oz",
+    "price": "$2.39"
+  },
+  {
+    "category": "Productos Enlatados",
+    "name": "Goya Macarrones #26 16oz",
+    "price": "$1.69"
+  },
+  {
+    "category": "Salsas y Condimentos",
+    "name": "Goya Ketchup 20oz",
+    "price": "$2.09"
+  },
+  {
+    "category": "Salsas y Condimentos",
+    "name": "Goya Mayo Ketchup 16oz",
+    "price": "$3.19"
+  }
+]

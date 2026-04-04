@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Claude Code
+.claude/
+
+# Credentials — never commit
+.env
+*.env
+
+# PHP vendor — install locally with composer
+vendor/
+
+# PHP logs
+*.log
+error_log

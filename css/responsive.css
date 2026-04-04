@@ -1,0 +1,316 @@
+/* ================================================
+   Responsive — Mega Fresh Carolina
+   iPhone / Mobile-first layout fixes
+   ================================================ */
+
+/* ── Global overflow guard (all sizes) ── */
+html {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Owl Carousel must never overflow horizontally */
+.owl-carousel,
+.owl-carousel .owl-stage-outer {
+    overflow: hidden !important;
+    max-width: 100% !important;
+}
+
+/* ── Tablet (≤ 991px) ── */
+@media (max-width: 991.98px) {
+
+    /* Carousel heading scales down */
+    .carousel-caption h1.display-2 {
+        font-size: 2.6rem;
+        line-height: 1.2;
+    }
+    .carousel-caption p {
+        font-size: 0.82rem;
+    }
+
+    /* Feature GIFs — portrait rectangles on tablet */
+    .feature-card img.img-fluid {
+        height: 360px;
+    }
+}
+
+/* ── Mobile (≤ 767px) ── */
+@media (max-width: 767.98px) {
+
+    /* ─ Base ─ */
+    body {
+        padding: 0;
+    }
+
+    /* Prevent any single element exceeding viewport */
+    * {
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+    img {
+        max-width: 100% !important;
+        height: auto;
+    }
+
+    /* ─ Top bar ─ */
+    .top-bar {
+        display: none;
+    }
+
+    /* ─ Navbar ─ */
+    .navbar .navbar-nav .nav-link {
+        padding: 12px 0;
+        text-align: center;
+    }
+
+    /* ─ Carousel ─ */
+    #header-carousel .carousel-item {
+        position: relative;
+        min-height: max(420px, 55vh);
+        background: linear-gradient(150deg, var(--primary-dark, #A00000) 0%, var(--primary, #CC0000) 100%);
+    }
+    #header-carousel .carousel-item img {
+        display: none !important;
+    }
+    #header-carousel .carousel-item::before {
+        display: none;
+    }
+    .carousel-caption {
+        text-align: center;
+        padding-top: 80px;
+        padding-bottom: 30px;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        align-items: center;
+    }
+    .carousel-caption h1.display-2 {
+        font-size: 2rem;
+        line-height: 1.25;
+        margin-bottom: 1rem;
+    }
+    .carousel-caption p {
+        font-size: 0.8rem;
+        opacity: 0.85;
+    }
+    .carousel-caption .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.85rem;
+        margin: 4px 3px;
+        white-space: nowrap;
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 12%;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 2rem;
+        height: 2rem;
+        border: 6px solid var(--primary);
+    }
+
+    /* ─ Containers — reduce gutter on mobile ─ */
+    .container,
+    .container-xxl,
+    .container-fluid {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    /* Compensate row negative margins for g-5 gutter */
+    .row.g-5 {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 1.5rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .row.g-4 {
+        --bs-gutter-x: 1rem;
+        --bs-gutter-y: 1rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .row.g-5 > [class*="col"],
+    .row.g-4 > [class*="col"] {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    /* ─ Section spacing ─ */
+    .my-6 { margin-top: 2.5rem !important; margin-bottom: 2.5rem !important; }
+    .py-6 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+    .py-5 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+
+    /* ─ Section headers ─ */
+    .section-header {
+        text-align: center !important;
+    }
+    .section-header h1.display-5 {
+        font-size: 1.75rem;
+    }
+    .section-header::before,
+    .section-header::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* ─ About image — strip internal padding on mobile ─ */
+    .about-img {
+        padding: 0 !important;
+        margin-bottom: 1.5rem;
+    }
+    .about-img img {
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: 280px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    /* Remove excessive px-5 column padding */
+    [class*="col"].px-5,
+    .col-lg-6.px-5 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* ─ Feature / Area Cards (GIFs) ─ */
+    .feature-card img.img-fluid {
+        height: 320px;
+        width: 100%;
+        border-radius: 8px;
+    }
+    .feature-card {
+        margin-bottom: 0;
+    }
+
+    /* ─ Page header (inner pages) ─ */
+    .page-header {
+        display: block !important;
+        padding-top: 8rem;
+        padding-bottom: 2.5rem;
+        text-align: center;
+        background-position: center center;
+    }
+    .page-header h1.display-3 {
+        font-size: 1.9rem;
+        line-height: 1.2;
+    }
+
+    /* ─ CTA Band ─ */
+    .container-fluid.bg-primary.bg-icon .row {
+        flex-direction: column;
+        text-align: center;
+    }
+    .container-fluid.bg-primary.bg-icon h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .container-fluid.bg-primary.bg-icon p {
+        text-align: center;
+    }
+    .container-fluid.bg-primary.bg-icon .btn {
+        display: block;
+        margin: 1rem auto 0 auto;
+        width: fit-content;
+    }
+
+    /* ─ Testimonials ─ */
+    .testimonial-carousel .owl-nav {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .testimonial-carousel .owl-nav .owl-prev,
+    .testimonial-carousel .owl-nav .owl-next {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    /* Fix testimonial item padding on mobile */
+    .testimonial-item {
+        padding: 1.25rem !important;
+    }
+
+    /* ─ Products ─ */
+    .product-item {
+        margin-bottom: 1.5rem;
+    }
+
+    /* ─ Contact ─ */
+    .contact-page .container-xxl {
+        margin-top: 40px;
+    }
+
+    /* ─ Footer ─ */
+    .footer {
+        text-align: center;
+    }
+    .footer-logo-img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer-brand-sub {
+        text-align: center;
+    }
+    .footer .btn.btn-link {
+        text-align: center;
+    }
+    .footer .btn.btn-link::before {
+        display: none;
+    }
+    .footer-social {
+        justify-content: center;
+    }
+    .footer .copyright {
+        font-size: 13px;
+    }
+    .footer .copyright .row > div {
+        text-align: center !important;
+    }
+
+    /* ─ Newsletter ─ */
+    .footer .input-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .footer .input-group .form-control {
+        border-radius: 30px !important;
+    }
+    .footer .input-group .btn {
+        border-radius: 30px !important;
+        width: 100%;
+    }
+
+    /* ─ iPhone safe area ─ */
+    .navbar {
+        padding-top: max(12px, env(safe-area-inset-top));
+    }
+    .footer .copyright {
+        padding-bottom: max(25px, env(safe-area-inset-bottom));
+    }
+}
+
+/* ── Extra Small phones (≤ 400px) ── */
+@media (max-width: 399.98px) {
+    .carousel-caption h1.display-2 {
+        font-size: 1.65rem;
+    }
+    .carousel-caption .btn + .btn {
+        margin-top: 4px;
+    }
+    .feature-card img.img-fluid {
+        height: 280px;
+    }
+    .page-header h1.display-3 {
+        font-size: 1.6rem;
+    }
+    .navbar-logo-img {
+        height: 36px;
+        width: 36px;
+    }
+    .logo-location {
+        font-size: 0.68rem;
+    }
+}

@@ -1,0 +1,115 @@
+/********** Header & Carousel **********/
+
+/* ── Consistent hero height ── */
+#header-carousel .carousel-item img {
+    max-height: 680px;
+    min-height: 520px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ── Dark gradient overlay for text readability ── */
+#header-carousel .carousel-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        100deg,
+        rgba(0, 0, 0, 0.62) 0%,
+        rgba(0, 0, 0, 0.38) 55%,
+        rgba(0, 0, 0, 0.08) 100%
+    );
+    z-index: 1;
+}
+
+/* ── Caption sits above overlay ── */
+.carousel-caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    z-index: 2;
+    padding-top: 160px; /* clear top-bar (45px) + navbar (~80px) + breathing room */
+    padding-bottom: 60px;
+}
+
+/* ── Text shadow for caption heading & subtext ── */
+.carousel-caption h1 {
+    text-shadow: 0 3px 16px rgba(0, 0, 0, 0.55);
+}
+.carousel-caption p {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+/* ── Carousel controls sit above overlay ── */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 15%;
+    z-index: 3;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--primary);
+    border: 10px solid var(--primary);
+    border-radius: 3rem;
+}
+
+/* ── Page header (inner pages) ── */
+.page-header {
+    padding-top: 12rem;
+    padding-bottom: 6rem;
+    background: url(../img/carousel-1.jpg) top right no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 0;
+}
+.page-header .container {
+    position: relative;
+    z-index: 1;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #999999;
+}
+
+/* ── Mobile: hide image, show brand-red background ── */
+@media (max-width: 768px) {
+    #header-carousel .carousel-item {
+        position: relative;
+        min-height: 420px;
+        background: linear-gradient(135deg, var(--primary-dark, #A00000) 0%, var(--primary, #CC0000) 100%);
+    }
+
+    #header-carousel .carousel-item img {
+        display: none !important;
+    }
+
+    /* Override the overlay on mobile since bg is already dark */
+    #header-carousel .carousel-item::before {
+        display: none;
+    }
+
+    .carousel-caption {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    /* Page header hidden on mobile */
+    .page-header {
+        display: none !important;
+    }
+}
