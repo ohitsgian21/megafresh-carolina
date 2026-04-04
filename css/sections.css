@@ -114,3 +114,44 @@
         margin-top: 20px;
     }
 }
+
+/********** File Upload — drop zone + file list **********/
+.file-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.file-list-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    font-size: 0.84rem;
+    color: #444;
+}
+.file-list-item .file-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+.btn-remove-file {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: var(--primary, #CC0000);
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0 2px;
+    opacity: 0.65;
+    transition: opacity 0.18s;
+}
+.btn-remove-file:hover {
+    opacity: 1;
+}

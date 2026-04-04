@@ -209,12 +209,20 @@
 
                                     <!-- File Upload -->
                                     <div class="col-12">
-                                        <div class="file-upload" id="dropZone" role="button" tabindex="0" aria-label="Área de carga de archivos — haz clic o arrastra tus archivos aquí">
+                                        <!-- Input lives OUTSIDE the dropZone so clicks can't bubble back and trigger a second dialog -->
+                                        <input type="file" id="attachment" name="attachment"
+                                               accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+                                               multiple style="display:none">
+
+                                        <div class="file-upload" id="dropZone" role="button" tabindex="0"
+                                             aria-label="Haz clic o arrastra archivos aquí para adjuntarlos">
                                             <i class="fas fa-cloud-upload-alt upload-icon" aria-hidden="true"></i>
-                                            <p class="upload-text">Adjunta tus archivos aquí</p>
-                                            <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
-                                            <small>Formatos permitidos: PDF, DOC, PNG, JPG</small>
+                                            <p class="upload-text mb-1">Adjunta tus archivos aquí</p>
+                                            <small>PDF, DOC, PNG, JPG · puedes seleccionar varios archivos</small>
                                         </div>
+
+                                        <!-- Selected file list (populated by JS) -->
+                                        <ul id="fileList" class="file-list mt-2" aria-live="polite"></ul>
                                     </div>
 
                                     <div class="col-12 d-flex justify-content-center">

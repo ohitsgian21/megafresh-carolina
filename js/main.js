@@ -103,31 +103,94 @@
             });
         }
 
-        // Drag & Drop File Upload
-        const dropZone = document.getElementById("dropZone");
+        // ── File Upload — drag & drop + click, supports multiple files ────────
+        const dropZone  = document.getElementById("dropZone");
         const fileInput = document.getElementById("attachment");
+        const fileList  = document.getElementById("fileList");
+
+        // Render the selected-file list below the drop zone
+        function renderFileList() {
+            if (!fileList) return;
+            fileList.innerHTML = "";
+            const files = fileInput.files;
+            if (!files || files.length === 0) return;
+
+            Array.from(files).forEach(function (file, idx) {
+                const kb  = (file.size / 1024).toFixed(0);
+                const li  = document.createElement("li");
+                li.className = "file-list-item";
+                li.innerHTML =
+                    '<i class="fas fa-paperclip me-1" aria-hidden="true"></i>' +
+                    '<span class="file-name">' + file.name + '</span>' +
+                    '<small class="text-muted ms-1">(' + kb + ' KB)</small>' +
+                    '<button type="button" class="btn-remove-file ms-auto" ' +
+                        'data-idx="' + idx + '" aria-label="Quitar ' + file.name + '">' +
+                        '&times;' +
+                    '</button>';
+                fileList.appendChild(li);
+            });
+        }
+
+        // Merge a FileList into the current input (so "add more" works)
+        function mergeFiles(newFiles) {
+            var dt = new DataTransfer();
+            Array.from(fileInput.files).forEach(function (f) { dt.items.add(f); });
+            Array.from(newFiles).forEach(function (f) { dt.items.add(f); });
+            fileInput.files = dt.files;
+        }
 
         if (dropZone && fileInput) {
-            // Click to open file dialog
-            dropZone.addEventListener("click", () => fileInput.click());
+            // Click drop zone → open picker.
+            // Input is OUTSIDE the dropZone so the programmatic click
+            // cannot bubble back up and trigger a second dialog.
+            dropZone.addEventListener("click", function () {
+                fileInput.click();
+            });
 
-            // Highlight on drag over
-            dropZone.addEventListener("dragover", (e) => {
+            // Keyboard accessibility (Enter / Space)
+            dropZone.addEventListener("keydown", function (e) {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    fileInput.click();
+                }
+            });
+
+            // Drag feedback
+            dropZone.addEventListener("dragover", function (e) {
                 e.preventDefault();
                 dropZone.classList.add("dragover");
             });
-
-            // Remove highlight on drag leave
-            dropZone.addEventListener("dragleave", () => {
+            dropZone.addEventListener("dragleave", function () {
                 dropZone.classList.remove("dragover");
             });
 
-            // Handle file drop
-            dropZone.addEventListener("drop", (e) => {
+            // Drop — merge with already-selected files
+            dropZone.addEventListener("drop", function (e) {
                 e.preventDefault();
                 dropZone.classList.remove("dragover");
-                fileInput.files = e.dataTransfer.files;
+                mergeFiles(e.dataTransfer.files);
+                renderFileList();
             });
+
+            // Native picker selection — merge so repeated opens add, not replace
+            fileInput.addEventListener("change", function () {
+                renderFileList();
+            });
+
+            // Remove individual file via the × button
+            if (fileList) {
+                fileList.addEventListener("click", function (e) {
+                    var btn = e.target.closest(".btn-remove-file");
+                    if (!btn) return;
+                    var idx = parseInt(btn.dataset.idx, 10);
+                    var dt  = new DataTransfer();
+                    Array.from(fileInput.files).forEach(function (f, i) {
+                        if (i !== idx) dt.items.add(f);
+                    });
+                    fileInput.files = dt.files;
+                    renderFileList();
+                });
+            }
         }
 
     });
