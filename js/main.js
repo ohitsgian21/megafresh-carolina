@@ -58,60 +58,48 @@
         });
 
 
-        // Contact Form Submission via FormSubmit.co (works on static/GitHub Pages hosting)
+        // ── Contact form ──────────────────────────────────────────────────────
         const contactForm = document.getElementById("contactForm");
         const responseBox = document.getElementById("formResponse");
         const submitBtn   = document.getElementById("submitBtn");
 
+        // After FormSubmit.co redirects back with ?sent=true, show success banner
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('sent') === 'true' && responseBox) {
+            responseBox.className = "alert alert-success mt-3";
+            responseBox.textContent = "¡Gracias! Tu mensaje ha sido enviado. Te responderemos pronto.";
+            // Clean URL so refreshing the page doesn't re-show the message
+            window.history.replaceState({}, document.title, window.location.pathname);
+            // Scroll form into view
+            responseBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Client-side validation — only blocks submit if fields are invalid
         if (contactForm) {
             contactForm.addEventListener("submit", function (e) {
-                e.preventDefault();
-
-                // Validate required fields before sending
                 const name    = contactForm.querySelector('#name').value.trim();
                 const email   = contactForm.querySelector('#email').value.trim();
                 const subject = contactForm.querySelector('#subject').value.trim();
                 const message = contactForm.querySelector('#message').value.trim();
+                const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
                 if (!name || !email || !subject || !message) {
+                    e.preventDefault();
                     responseBox.className = "alert alert-danger mt-3";
                     responseBox.textContent = "Por favor completa todos los campos requeridos.";
                     return;
                 }
-
-                // Disable button to prevent double submissions
+                if (!emailRe.test(email)) {
+                    e.preventDefault();
+                    responseBox.className = "alert alert-danger mt-3";
+                    responseBox.textContent = "Por favor ingresa un correo electrónico válido.";
+                    return;
+                }
+                // All valid — let the form submit natively to FormSubmit.co
                 if (submitBtn) {
                     submitBtn.disabled = true;
                     submitBtn.value = "Enviando...";
                 }
-
-                const formData = new FormData(contactForm);
-
-                fetch("https://formsubmit.co/ajax/gianquinones21@gmail.com", {
-                    method: "POST",
-                    headers: { "Accept": "application/json" },
-                    body: formData
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if (submitBtn) { submitBtn.disabled = false; submitBtn.value = "Enviar Mensaje"; }
-
-                    if (data.success === "true" || data.success === true) {
-                        responseBox.className = "alert alert-success mt-3";
-                        responseBox.textContent = "¡Gracias! Tu mensaje ha sido enviado correctamente. Te responderemos pronto.";
-                        contactForm.reset();
-                    } else {
-                        responseBox.className = "alert alert-danger mt-3";
-                        responseBox.textContent = data.message || "Hubo un error al enviar el formulario. Inténtalo de nuevo.";
-                    }
-
-                    setTimeout(() => responseBox.classList.add("d-none"), 6000);
-                })
-                .catch(() => {
-                    if (submitBtn) { submitBtn.disabled = false; submitBtn.value = "Enviar Mensaje"; }
-                    responseBox.className = "alert alert-danger mt-3";
-                    responseBox.textContent = "Hubo un error al enviar el formulario. Por favor inténtalo de nuevo.";
-                });
             });
         }
 

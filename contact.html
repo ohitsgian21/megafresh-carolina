@@ -25,21 +25,21 @@
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
         <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css?v=6" rel="stylesheet">
+        <link href="css/bootstrap.min.css?v=7" rel="stylesheet">
 
         <!-- Modular Template Stylesheets -->
-        <link href="css/variables.css?v=6" rel="stylesheet">
-        <link href="css/utilities.css?v=6" rel="stylesheet">
-        <link href="css/spinner.css?v=6" rel="stylesheet">
-        <link href="css/buttons.css?v=6" rel="stylesheet">
-        <link href="css/navbar.css?v=6" rel="stylesheet">
-        <link href="css/header.css?v=6" rel="stylesheet">
-        <link href="css/sections.css?v=6" rel="stylesheet">
-        <link href="css/about.css?v=6" rel="stylesheet">
-        <link href="css/products.css?v=6" rel="stylesheet">
-        <link href="css/testimonials.css?v=6" rel="stylesheet">
-        <link href="css/footer.css?v=6" rel="stylesheet">
-        <link href="css/responsive.css?v=6" rel="stylesheet">
+        <link href="css/variables.css?v=7" rel="stylesheet">
+        <link href="css/utilities.css?v=7" rel="stylesheet">
+        <link href="css/spinner.css?v=7" rel="stylesheet">
+        <link href="css/buttons.css?v=7" rel="stylesheet">
+        <link href="css/navbar.css?v=7" rel="stylesheet">
+        <link href="css/header.css?v=7" rel="stylesheet">
+        <link href="css/sections.css?v=7" rel="stylesheet">
+        <link href="css/about.css?v=7" rel="stylesheet">
+        <link href="css/products.css?v=7" rel="stylesheet">
+        <link href="css/testimonials.css?v=7" rel="stylesheet">
+        <link href="css/footer.css?v=7" rel="stylesheet">
+        <link href="css/responsive.css?v=7" rel="stylesheet">
     </head>
 
     <body>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-lg-6 px-5 text-end">
                     <small>
-                        <i class="fa fa-clock me-2"></i>Lun–Dom: 7:00 am – 10:00 pm
+                <i class="fa fa-clock me-2"></i>Lun–Dom: 6:00 am – 9:00 pm
                         &nbsp;&nbsp;|&nbsp;&nbsp;
                         <i class="fa fa-envelope me-2"></i>elmejorsupermercado1@gmail.com
                     </small>
@@ -170,13 +170,16 @@
 
                         <!-- Contact Form -->
                         <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-                            <form id="contactForm" method="post" action="https://formsubmit.co/gianquinones21@gmail.com" enctype="multipart/form-data" novalidate>
+                            <form id="contactForm" method="post" action="https://formsubmit.co/gianquinones21@gmail.com" enctype="multipart/form-data">
 
-                                <!-- FormSubmit configuration -->
-                                <input type="hidden" name="_subject" value="Nuevo Contacto — Mega Fresh Carolina">
-                                <input type="hidden" name="_captcha" value="false">
-                                <input type="hidden" name="_template" value="table">
+                                <!-- FormSubmit.co configuration (works on any static host — no AJAX/CORS needed) -->
+                                <input type="hidden" name="_next"         value="https://ohitsgian21.github.io/megafresh-carolina/contact.html?sent=true">
+                                <input type="hidden" name="_subject"      value="Nuevo Contacto — Mega Fresh Carolina">
+                                <input type="hidden" name="_template"     value="table">
+                                <input type="hidden" name="_captcha"      value="false">
                                 <input type="hidden" name="_autoresponse" value="¡Gracias por contactar a Mega Fresh Carolina! Recibimos tu mensaje y te responderemos pronto.">
+                                <!-- Honeypot anti-spam (bots fill this; humans leave it empty) -->
+                                <input type="text"   name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
                                 <div class="row g-3">
                                     <div class="col-md-6">
@@ -262,7 +265,7 @@
                         <p><i class="fa fa-map-marker-alt me-3" aria-hidden="true"></i>24 Calle Yunquecito, Carolina, PR 00987</p>
                         <p><i class="fa fa-phone-alt me-3" aria-hidden="true"></i>+1 787-257-8050</p>
                         <p><i class="fa fa-envelope me-3" aria-hidden="true"></i>elmejorsupermercado1@gmail.com</p>
-                        <p><i class="fa fa-clock me-3" aria-hidden="true"></i>Lun–Dom: 7:00 am – 10:00 pm</p>
+                        <p><i class="fa fa-clock me-3" aria-hidden="true"></i>Lun–Dom: 6:00 am – 9:00 pm</p>
                     </div>
                     <div class="col-lg-2 col-md-6">
                         <h4 class="text-light mb-4">Enlaces Rápidos</h4>
@@ -275,7 +278,7 @@
                         <h4 class="text-light mb-4">Noticias y Ofertas</h4>
                         <p>Subscríbete para recibir los especiales y novedades de Mega Fresh Carolina.</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
-                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="email" placeholder="Tu correo electrónico" aria-label="Correo electrónico para newsletter">
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="email" placeholder="Tu Email" aria-label="Correo electrónico para newsletter">
                             <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Suscribirse</button>
                         </div>
                     </div>
@@ -284,8 +287,12 @@
             <div class="container-fluid copyright">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a href="index.html">Mega Fresh Carolina</a>, Todos los derechos reservados.
+                        <div
+                            class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a href="index.html">El Mejor Supermercado
+                                LLC.</a>,
+                            All Rights
+                            Reserved.
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             Designed By <a href="https://htmlcodex.com">HTML Codex</a>

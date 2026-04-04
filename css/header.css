@@ -103,13 +103,24 @@
         display: none;
     }
 
+    /* Carousel caption — padding managed by responsive.css to clear fixed navbar */
     .carousel-caption {
         text-align: center;
-        padding: 1rem;
     }
 
-    /* Page header hidden on mobile */
+    /* Page header — compact on mobile, clears fixed navbar (~66px) */
     .page-header {
-        display: none !important;
+        display: block !important;
+        padding-top: 6.5rem;
+        padding-bottom: 2rem;
+        background-position: center center;
+    }
+    .page-header h1.display-3 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+    }
+    .page-header .breadcrumb {
+        font-size: 0.82rem;
     }
 }
