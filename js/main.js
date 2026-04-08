@@ -28,7 +28,7 @@
         const backToTop = document.querySelector('.back-to-top');
         window.addEventListener('scroll', function () {
             if (backToTop) {
-                backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+                backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
             }
         });
         if (backToTop) {
