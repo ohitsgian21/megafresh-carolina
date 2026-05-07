@@ -441,16 +441,24 @@
 <!-- Render categories & deals from data.js -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  function escHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   // Categories Grid
   var cGrid = document.getElementById('categories-grid');
   if (cGrid && window.categories) {
     cGrid.innerHTML = window.categories.map(function(cat) {
       return '<div class="col-lg-6 col-md-6 animate-on-scroll">' +
         '<a href="categorias.html" class="category-card">' +
-        '<div class="category-card-img-wrap"><img src="' + cat.gif + '" alt="' + cat.name + '" loading="lazy" decoding="async"></div>' +
+        '<div class="category-card-img-wrap"><img src="' + escHtml(cat.gif) + '" alt="' + escHtml(cat.name) + '" loading="lazy" decoding="async"></div>' +
         '<div class="category-card-body">' +
-        '<h4>' + cat.name + '</h4>' +
-        '<p>' + cat.description + '</p>' +
+        '<h4>' + escHtml(cat.name) + '</h4>' +
+        '<p>' + escHtml(cat.description) + '</p>' +
         '<span class="cat-link">Ver productos &rarr;</span>' +
         '</div></a></div>';
     }).join('');
@@ -461,15 +469,15 @@ document.addEventListener('DOMContentLoaded', function() {
   if (dGrid && window.deals) {
     dGrid.innerHTML = window.deals.slice(0, 4).map(function(deal) {
       var badge = deal.badge ?
-        '<span class="deal-badge ' + (deal.cold ? 'deal-badge-frio' : 'deal-badge-oferta') + '">' + deal.badge + '</span>' : '';
+        '<span class="deal-badge ' + (deal.cold ? 'deal-badge-frio' : 'deal-badge-oferta') + '">' + escHtml(deal.badge) + '</span>' : '';
       return '<div class="col-lg-3 col-md-6 animate-on-scroll">' +
         '<div class="deal-card">' +
         badge +
-        '<img class="deal-card-img" src="' + deal.img + '" alt="' + deal.name + '" loading="lazy">' +
+        '<img class="deal-card-img" src="' + escHtml(deal.img) + '" alt="' + escHtml(deal.name) + '" loading="lazy">' +
         '<div class="deal-card-body">' +
-        '<div class="deal-card-cat">' + deal.category + '</div>' +
-        '<div class="deal-card-name">' + deal.name + '</div>' +
-        '<div class="deal-card-price">' + deal.price + '</div>' +
+        '<div class="deal-card-cat">' + escHtml(deal.category) + '</div>' +
+        '<div class="deal-card-name">' + escHtml(deal.name) + '</div>' +
+        '<div class="deal-card-price">' + escHtml(deal.price) + '</div>' +
         '</div></div></div>';
     }).join('');
   }

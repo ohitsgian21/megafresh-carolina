@@ -100,6 +100,9 @@
         var dropZone  = document.getElementById('file-upload-area');
         var fileInput = document.getElementById('file-input');
         var fileList  = document.getElementById('file-list');
+        var fileError = document.getElementById('file-error');
+        var MAX_FILE_SIZE = 5 * 1024 * 1024;
+        var ALLOWED_FILE_EXTENSIONS = ['pdf', 'doc', 'docx', 'png', 'jpg', 'jpeg'];
 
         function escHtml(str) {
             return String(str)
@@ -128,11 +131,53 @@
             });
         }
 
+        function showFileError(message) {
+            if (!fileError) return;
+            fileError.textContent = message || '';
+            fileError.style.display = message ? 'block' : 'none';
+        }
+
+        function isAllowedFile(file) {
+            var parts = String(file.name || '').toLowerCase().split('.');
+            var ext = parts.length > 1 ? parts.pop() : '';
+            return ALLOWED_FILE_EXTENSIONS.indexOf(ext) !== -1;
+        }
+
+        function validateFiles(files) {
+            var validFiles = [];
+            var hasInvalidType = false;
+            var hasOversizeFile = false;
+
+            Array.from(files || []).forEach(function (file) {
+                if (!isAllowedFile(file)) {
+                    hasInvalidType = true;
+                    return;
+                }
+                if (file.size > MAX_FILE_SIZE) {
+                    hasOversizeFile = true;
+                    return;
+                }
+                validFiles.push(file);
+            });
+
+            if (hasInvalidType || hasOversizeFile) {
+                var errors = [];
+                if (hasInvalidType) errors.push('Solo se permiten archivos PDF, DOC, DOCX, PNG, JPG y JPEG.');
+                if (hasOversizeFile) errors.push('Cada archivo debe ser de 5MB o menos.');
+                showFileError(errors.join(' '));
+            } else {
+                showFileError('');
+            }
+
+            return validFiles;
+        }
+
         function mergeFiles(newFiles) {
             if (!fileInput) return;
+            var validIncoming = validateFiles(newFiles);
             var dt = new DataTransfer();
             Array.from(fileInput.files).forEach(function (f) { dt.items.add(f); });
-            Array.from(newFiles).forEach(function (f) { dt.items.add(f); });
+            validIncoming.forEach(function (f) { dt.items.add(f); });
             fileInput.files = dt.files;
         }
 
@@ -154,7 +199,12 @@
                 mergeFiles(e.dataTransfer.files);
                 renderFileList();
             });
-            fileInput.addEventListener('change', renderFileList);
+            fileInput.addEventListener('change', function () {
+                var dt = new DataTransfer();
+                validateFiles(fileInput.files).forEach(function (f) { dt.items.add(f); });
+                fileInput.files = dt.files;
+                renderFileList();
+            });
 
             if (fileList) {
                 fileList.addEventListener('click', function (e) {
