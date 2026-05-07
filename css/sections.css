@@ -27,9 +27,15 @@
 }
 
 .section-header.text-start::before,
-.section-header.text-start::after {
+.section-header.text-start::after,
+.section-header.section-header-left::before,
+.section-header.section-header-left::after {
     left: 0;
     transform: translateX(0);
+}
+
+.section-header-left {
+    text-align: left;
 }
 
 /********** Specials / Promo Badge **********/

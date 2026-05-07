@@ -24,7 +24,7 @@ body {
 @media (max-width: 991.98px) {
 
     /* Carousel heading scales down */
-    .carousel-caption h1.display-2 {
+    .carousel-caption h1 {
         font-size: 2.6rem;
         line-height: 1.2;
     }
@@ -35,6 +35,7 @@ body {
     /* Feature GIFs — portrait rectangles on tablet */
     .feature-card img.img-fluid {
         height: 360px;
+        aspect-ratio: unset;
     }
 }
 
@@ -86,7 +87,7 @@ body {
         padding-right: 1.25rem;
         align-items: center;
     }
-    .carousel-caption h1.display-2 {
+    .carousel-caption h1 {
         font-size: 2rem;
         line-height: 1.25;
         margin-bottom: 1rem;
@@ -100,6 +101,14 @@ body {
         font-size: 0.85rem;
         margin: 4px 3px;
         white-space: nowrap;
+    }
+    /* Center the hero tag pill and button row */
+    .carousel-caption .hero-caption-tag {
+        display: block;
+        text-align: center;
+    }
+    .carousel-caption .d-flex {
+        justify-content: center !important;
     }
     .carousel-control-prev,
     .carousel-control-next {
@@ -174,10 +183,12 @@ body {
         padding-right: 0 !important;
     }
 
-    /* ─ Feature / Area Cards (GIFs) ─ */
+    /* ─ Feature / Area Cards (GIFs) — 9:16 portrait, double size ─ */
     .feature-card img.img-fluid {
-        height: 320px;
         width: 100%;
+        height: auto;
+        aspect-ratio: 9 / 16;
+        object-fit: cover;
         border-radius: 8px;
     }
     .feature-card {
@@ -228,6 +239,76 @@ body {
         margin-bottom: 1.5rem;
     }
 
+    /* ─ About section — center checklist & CTA button ─ */
+    .d-flex.flex-wrap.gap-3 {
+        justify-content: center !important;
+    }
+    .d-flex.flex-wrap.gap-3 > p.mb-0 {
+        text-align: left !important;
+        width: auto;
+    }
+    /* Center the "Conoce Nuestra Historia" button */
+    .col-lg-6 > .btn.btn-primary.rounded-pill.mt-4 {
+        display: block;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* ─ Especiales Destacados header + button row ─ */
+    #especiales .d-flex.justify-content-between {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    #especiales .section-header {
+        text-align: center !important;
+        width: 100%;
+    }
+    #especiales .section-header h2 {
+        text-align: center !important;
+    }
+
+    /* ─ CTA band button — center on mobile ─ */
+    .cta-band .col-md-5 {
+        text-align: center !important;
+    }
+    .cta-band h2,
+    .cta-band p {
+        text-align: center !important;
+    }
+
+    /* ─ General text alignment on mobile ─ */
+    h1, h2, h3, h4, h5, h6 {
+        text-align: center !important;
+    }
+    .text-start {
+        text-align: center !important;
+    }
+    /* Info/detail items (contact cards, about lists, etc.) */
+    .contact-info-text p,
+    .contact-info-text h6 {
+        text-align: left !important;
+    }
+    /* Body/content paragraphs — justify for readability */
+    .section-py p,
+    .section-py-sm p,
+    .about-text p,
+    .nosotros-text p,
+    .testimonial-item p,
+    .category-card-body p,
+    .feature-card p {
+        text-align: justify !important;
+    }
+    /* Buttons and inline elements stay centered */
+    .btn, .badge {
+        text-align: center !important;
+    }
+    /* Breadcrumb centered */
+    .breadcrumb {
+        justify-content: center;
+    }
+
     /* ─ Contact ─ */
     .contact-page .container-xxl {
         margin-top: 40px;
@@ -252,8 +333,23 @@ body {
     .footer-brand-sub {
         text-align: center;
     }
+    /* Footer paragraphs with icons — center, don't justify (breaks icon layout) */
+    .footer p {
+        text-align: center !important;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 6px;
+    }
+    .footer p i {
+        flex-shrink: 0;
+        margin-top: 3px;
+        margin-right: 0 !important;
+    }
+    /* Footer nav links — centered */
     .footer .btn.btn-link {
-        text-align: center;
+        text-align: center !important;
+        display: block;
     }
     .footer .btn.btn-link::before {
         display: none;
@@ -269,16 +365,37 @@ body {
     }
 
     /* ─ Newsletter ─ */
-    .footer .input-group {
+    .footer .input-group,
+    .footer-newsletter {
         flex-direction: column;
         gap: 8px;
     }
-    .footer .input-group .form-control {
-        border-radius: 30px !important;
-    }
-    .footer .input-group .btn {
+    .footer .input-group .form-control,
+    .footer-newsletter .form-control {
         border-radius: 30px !important;
         width: 100%;
+    }
+    .footer .input-group .btn,
+    .footer-newsletter .btn {
+        border-radius: 30px !important;
+        width: 100%;
+    }
+
+    /* ─ Stats banner & CTA band — solid color on mobile ─ */
+    .stats-banner {
+        background: #B00000;
+    }
+    .cta-band {
+        background: #B00000;
+    }
+
+    /* ─ Back to Top button ─ */
+    .back-to-top {
+        right: 16px;
+        bottom: max(20px, env(safe-area-inset-bottom, 20px));
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
     }
 
     /* ─ iPhone safe area ─ */
@@ -292,14 +409,15 @@ body {
 
 /* ── Extra Small phones (≤ 400px) ── */
 @media (max-width: 399.98px) {
-    .carousel-caption h1.display-2 {
+    .carousel-caption h1 {
         font-size: 1.65rem;
     }
     .carousel-caption .btn + .btn {
         margin-top: 4px;
     }
     .feature-card img.img-fluid {
-        height: 280px;
+        aspect-ratio: 9 / 16;
+        height: auto;
     }
     .page-header h1.display-3 {
         font-size: 1.6rem;
@@ -311,4 +429,71 @@ body {
     .logo-location {
         font-size: 0.68rem;
     }
+}
+
+/* ── New Components — Hero carousel (full viewport) ── */
+@media (max-width: 767.98px) {
+    .hero-carousel .carousel-item img {
+        min-height: 400px;
+        max-height: 480px;
+    }
+    .hero-carousel .carousel-caption {
+        padding: 0 1rem;
+    }
+    .hero-carousel .carousel-caption h1 {
+        font-size: clamp(1.6rem, 6vw, 2.4rem);
+    }
+
+    /* Features strip: 2 cols on mobile */
+    .features-strip .col-6 { flex: 0 0 50%; max-width: 50%; }
+
+    /* Category card — stack vertically on mobile, 9:16 GIF */
+    .category-card { flex-direction: column; }
+    .category-card-img-wrap {
+        width: 100%;
+        min-width: unset;
+        height: auto;
+        aspect-ratio: 9 / 16;
+    }
+    .category-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        padding: 0;
+    }
+    .category-card:hover img { transform: scale(1.08); }
+    .category-card-body { padding: 1rem 1.25rem 1.25rem; }
+
+    /* Stats numbers smaller */
+    .stat-number { font-size: 2rem; }
+
+    /* Deal cards: 2 per row on small screens */
+    #deals-grid .col-lg-3,
+    #specials-grid .col-lg-3 { flex: 0 0 50%; max-width: 50%; }
+
+    /* About preview image */
+    .about-preview-img img { height: 260px; }
+    .nosotros-hero-img { height: 260px; }
+    .banner-logo { max-width: 260px; }
+
+    /* Contact info card */
+    .contact-info-card { padding: 1.25rem; }
+
+    /* Filter bar wraps nicely */
+    .filter-bar { gap: 6px; }
+    .filter-btn { font-size: 0.76rem; padding: 5px 12px; }
+
+    /* CTA Band */
+    .cta-band { text-align: center; }
+    .cta-band .col-md-5 { text-align: center !important; }
+
+    /* Search overlay */
+    #search-overlay { padding-top: 40px; }
+    #search-input { font-size: 1rem; padding: 12px 16px; }
+}
+
+/* ── Large screens (TV / 4K) ── */
+@media (min-width: 1600px) {
+    .hero-carousel .carousel-item img { max-height: 800px; }
+    .container { max-width: 1400px; }
 }

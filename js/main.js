@@ -1,138 +1,135 @@
+/**
+ * main.js — Mega Fresh Carolina
+ * Core site functionality:
+ *   - Spinner removal
+ *   - Navbar scroll effect
+ *   - Back-to-top button
+ *   - Testimonials carousel (Owl Carousel via jQuery)
+ *   - Scroll-reveal animations (IntersectionObserver, replaces WOW.js)
+ *   - File upload with drag & drop (new contact form IDs)
+ */
 (function ($) {
     "use strict";
 
     document.addEventListener("DOMContentLoaded", function () {
-        // Spinner
-        const spinnerEl = document.getElementById('spinner');
+
+        /* ── Spinner ───────────────────────────────────────────── */
+        var spinnerEl = document.getElementById('spinner');
         if (spinnerEl) {
-            setTimeout(() => spinnerEl.classList.remove('show'), 1);
+            window.addEventListener('load', function () {
+                spinnerEl.classList.remove('show');
+                spinnerEl.classList.add('hide');
+            });
+            // Failsafe: also hide after 3s if load event is slow
+            setTimeout(function () {
+                spinnerEl.classList.remove('show');
+                spinnerEl.classList.add('hide');
+            }, 3000);
         }
 
-        // WOW.js
-        if (typeof WOW === 'function') new WOW().init();
+        /* ── Navbar scroll effect ──────────────────────────────── */
+        var navbar = document.querySelector('.navbar');
+        if (navbar) {
+            window.addEventListener('scroll', function () {
+                navbar.classList.toggle('scrolled', window.scrollY > 30);
+            });
+        }
 
-        // Fixed Navbar
-        window.addEventListener('scroll', function () {
-            const fixedTop = document.querySelector('.fixed-top');
-            if (!fixedTop) return;
-
-            const scrolled = window.scrollY > 45;
-            fixedTop.classList.toggle('bg-white', scrolled);
-            fixedTop.classList.toggle('shadow', scrolled);
-            if (window.innerWidth >= 992) {
-                fixedTop.style.top = scrolled ? '-45px' : '0';
-            }
-        });
-
-        // Back to top button
-        const backToTop = document.querySelector('.back-to-top');
-        window.addEventListener('scroll', function () {
-            if (backToTop) {
-                backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
-            }
-        });
+        /* ── Back to Top ───────────────────────────────────────── */
+        var backToTop = document.querySelector('.back-to-top');
         if (backToTop) {
-            backToTop.addEventListener('click', () => {
-                $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
+            window.addEventListener('scroll', function () {
+                backToTop.classList.toggle('show', window.scrollY > 300);
             });
-        }
-
-        // Testimonials carousel
-        $(".testimonial-carousel").owlCarousel({
-            autoplay: true,
-            smartSpeed: 1000,
-            margin: 25,
-            loop: true,
-            center: true,
-            dots: false,
-            nav: true,
-            navText: [
-                '<i class="bi bi-chevron-left"></i>',
-                '<i class="bi bi-chevron-right"></i>'
-            ],
-            responsive: {
-                0: { items: 1 },
-                768: { items: 2 },
-                992: { items: 3 }
-            }
-        });
-
-
-        // ── Contact form ──────────────────────────────────────────────────────
-        const contactForm = document.getElementById("contactForm");
-        const responseBox = document.getElementById("formResponse");
-        const submitBtn   = document.getElementById("submitBtn");
-
-        // After FormSubmit.co redirects back with ?sent=true, show success banner
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('sent') === 'true' && responseBox) {
-            responseBox.className = "alert alert-success mt-3";
-            responseBox.textContent = "¡Gracias! Tu mensaje ha sido enviado. Te responderemos pronto.";
-            // Clean URL so refreshing the page doesn't re-show the message
-            window.history.replaceState({}, document.title, window.location.pathname);
-            // Scroll form into view
-            responseBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        // Client-side validation — only blocks submit if fields are invalid
-        if (contactForm) {
-            contactForm.addEventListener("submit", function (e) {
-                const name    = contactForm.querySelector('#name').value.trim();
-                const email   = contactForm.querySelector('#email').value.trim();
-                const subject = contactForm.querySelector('#subject').value.trim();
-                const message = contactForm.querySelector('#message').value.trim();
-                const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-                if (!name || !email || !subject || !message) {
-                    e.preventDefault();
-                    responseBox.className = "alert alert-danger mt-3";
-                    responseBox.textContent = "Por favor completa todos los campos requeridos.";
-                    return;
-                }
-                if (!emailRe.test(email)) {
-                    e.preventDefault();
-                    responseBox.className = "alert alert-danger mt-3";
-                    responseBox.textContent = "Por favor ingresa un correo electrónico válido.";
-                    return;
-                }
-                // All valid — let the form submit natively to FormSubmit.co
-                if (submitBtn) {
-                    submitBtn.disabled = true;
-                    submitBtn.value = "Enviando...";
+            backToTop.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Native smooth scroll — works on all modern browsers including iOS
+                try {
+                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                } catch (err) {
+                    window.scrollTo(0, 0);
                 }
             });
         }
 
-        // ── File Upload — drag & drop + click, supports multiple files ────────
-        const dropZone  = document.getElementById("dropZone");
-        const fileInput = document.getElementById("attachment");
-        const fileList  = document.getElementById("fileList");
+        /* ── Testimonials Carousel (Owl) ───────────────────────── */
+        if (window.jQuery && $.fn.owlCarousel && $(".testimonial-carousel").length) {
+            $(".testimonial-carousel").owlCarousel({
+                autoplay:      true,
+                autoplayTimeout: 5000,
+                smartSpeed:    800,
+                margin:        24,
+                loop:          true,
+                center:        false,
+                dots:          true,
+                nav:           true,
+                navText: [
+                    '<i class="bi bi-chevron-left"></i>',
+                    '<i class="bi bi-chevron-right"></i>'
+                ],
+                responsive: {
+                    0:   { items: 1 },
+                    768: { items: 2 },
+                    992: { items: 3 }
+                }
+            });
+        }
 
-        // Render the selected-file list below the drop zone
+        /* ── Scroll-Reveal (IntersectionObserver) ──────────────── */
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(function (el) {
+                observer.observe(el);
+            });
+        } else {
+            // Fallback: just show everything immediately
+            document.querySelectorAll('.animate-on-scroll').forEach(function (el) {
+                el.classList.add('visible');
+            });
+        }
+
+        /* ── File Upload — drag & drop (contacto.html) ─────────── */
+        var dropZone  = document.getElementById('file-upload-area');
+        var fileInput = document.getElementById('file-input');
+        var fileList  = document.getElementById('file-list');
+
+        function escHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
         function renderFileList() {
-            if (!fileList) return;
-            fileList.innerHTML = "";
-            const files = fileInput.files;
+            if (!fileList || !fileInput) return;
+            fileList.innerHTML = '';
+            var files = fileInput.files;
             if (!files || files.length === 0) return;
 
             Array.from(files).forEach(function (file, idx) {
-                const kb  = (file.size / 1024).toFixed(0);
-                const li  = document.createElement("li");
-                li.className = "file-list-item";
-                li.innerHTML =
-                    '<i class="fas fa-paperclip me-1" aria-hidden="true"></i>' +
-                    '<span class="file-name">' + file.name + '</span>' +
-                    '<small class="text-muted ms-1">(' + kb + ' KB)</small>' +
-                    '<button type="button" class="btn-remove-file ms-auto" ' +
-                        'data-idx="' + idx + '" aria-label="Quitar ' + file.name + '">' +
-                        '&times;' +
-                    '</button>';
-                fileList.appendChild(li);
+                var kb   = (file.size / 1024).toFixed(0);
+                var chip = document.createElement('span');
+                chip.className = 'file-chip';
+                chip.innerHTML =
+                    '<i class="fa fa-paperclip" aria-hidden="true"></i>' +
+                    escHtml(file.name) +
+                    ' <small>(' + kb + ' KB)</small>' +
+                    '<button type="button" data-idx="' + idx + '" aria-label="Quitar ' + escHtml(file.name) + '">&times;</button>';
+                fileList.appendChild(chip);
             });
         }
 
-        // Merge a FileList into the current input (so "add more" works)
         function mergeFiles(newFiles) {
+            if (!fileInput) return;
             var dt = new DataTransfer();
             Array.from(fileInput.files).forEach(function (f) { dt.items.add(f); });
             Array.from(newFiles).forEach(function (f) { dt.items.add(f); });
@@ -140,49 +137,30 @@
         }
 
         if (dropZone && fileInput) {
-            // Click drop zone → open picker.
-            // Input is OUTSIDE the dropZone so the programmatic click
-            // cannot bubble back up and trigger a second dialog.
-            dropZone.addEventListener("click", function () {
-                fileInput.click();
+            dropZone.addEventListener('click', function () { fileInput.click(); });
+            dropZone.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); }
             });
-
-            // Keyboard accessibility (Enter / Space)
-            dropZone.addEventListener("keydown", function (e) {
-                if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    fileInput.click();
-                }
-            });
-
-            // Drag feedback
-            dropZone.addEventListener("dragover", function (e) {
+            dropZone.addEventListener('dragover', function (e) {
                 e.preventDefault();
-                dropZone.classList.add("dragover");
+                dropZone.classList.add('dragover');
             });
-            dropZone.addEventListener("dragleave", function () {
-                dropZone.classList.remove("dragover");
+            dropZone.addEventListener('dragleave', function () {
+                dropZone.classList.remove('dragover');
             });
-
-            // Drop — merge with already-selected files
-            dropZone.addEventListener("drop", function (e) {
+            dropZone.addEventListener('drop', function (e) {
                 e.preventDefault();
-                dropZone.classList.remove("dragover");
+                dropZone.classList.remove('dragover');
                 mergeFiles(e.dataTransfer.files);
                 renderFileList();
             });
+            fileInput.addEventListener('change', renderFileList);
 
-            // Native picker selection — merge so repeated opens add, not replace
-            fileInput.addEventListener("change", function () {
-                renderFileList();
-            });
-
-            // Remove individual file via the × button
             if (fileList) {
-                fileList.addEventListener("click", function (e) {
-                    var btn = e.target.closest(".btn-remove-file");
+                fileList.addEventListener('click', function (e) {
+                    var btn = e.target.closest('button[data-idx]');
                     if (!btn) return;
-                    var idx = parseInt(btn.dataset.idx, 10);
+                    var idx = parseInt(btn.getAttribute('data-idx'), 10);
                     var dt  = new DataTransfer();
                     Array.from(fileInput.files).forEach(function (f, i) {
                         if (i !== idx) dt.items.add(f);
@@ -193,5 +171,6 @@
             }
         }
 
-    });
-})(jQuery);
+    }); // DOMContentLoaded
+
+})(window.jQuery || { fn: {} });

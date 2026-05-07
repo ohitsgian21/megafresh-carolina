@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Mega Fresh Carolina — Modo TV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="img/favicon.png" rel="icon">
+  <link href="css/tv.css?v=9" rel="stylesheet">
+</head>
+<body class="tv-mode">
+
+<!-- TV Header -->
+<div id="tv-header">
+  <div id="tv-logo">
+    <img src="img/megaFreshSmallLogo.jpg" alt="Mega Fresh Carolina" onerror="this.style.display='none'">
+    <div>
+      <div id="tv-logo-text">Mega Fresh Carolina</div>
+      <div id="tv-logo-sub">El Mejor Supermercado · Carolina, PR</div>
+    </div>
+  </div>
+  <div id="tv-clock" aria-live="polite" aria-label="Hora actual"></div>
+</div>
+
+<!-- Slides Container -->
+<div id="tv-slides" aria-live="polite"></div>
+
+<!-- Progress Dots -->
+<div id="tv-dots" role="tablist" aria-label="Diapositivas"></div>
+
+<!-- Bottom Ticker -->
+<div id="tv-ticker" aria-label="Información de la tienda">
+  <div class="ticker-track">
+    <span><i class="fa fa-map-marker-alt"></i>24 Calle Yunquecito, Carolina, PR 00987</span>
+    <span><i class="fa fa-phone-alt"></i>+1 787-257-8050</span>
+    <span><i class="fa fa-clock"></i>Lun–Dom: 6:00 am – 9:00 pm</span>
+    <span><i class="fa fa-star"></i>Especiales cada semana · Productos frescos diariamente</span>
+    <span><i class="fa fa-map-marker-alt"></i>24 Calle Yunquecito, Carolina, PR 00987</span>
+    <span><i class="fa fa-phone-alt"></i>+1 787-257-8050</span>
+    <span><i class="fa fa-clock"></i>Lun–Dom: 6:00 am – 9:00 pm</span>
+    <span><i class="fa fa-star"></i>Especiales cada semana · Productos frescos diariamente</span>
+  </div>
+</div>
+
+<!-- Fullscreen hint -->
+<div id="tv-fullscreen-hint">Presiona F para pantalla completa</div>
+
+<!-- Data + TV Logic -->
+<script src="js/data.js"></script>
+<script src="js/tv.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+/********** pages.css — Mega Fresh Carolina **********/
+/* Page-specific styles that don't belong in components.css */
+
+/* ════════════════════════════════════════════════════
+   NOSOTROS (About)
+   ════════════════════════════════════════════════════ */
+.nosotros-hero-img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card-hover);
+  display: block;
+}
+.value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.value-item i {
+  color: var(--primary);
+  font-size: 1.2rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.value-item p { margin: 0; font-weight: 600; }
+
+/* ════════════════════════════════════════════════════
+   CONTACTO (Contact)
+   ════════════════════════════════════════════════════ */
+.contact-info-card {
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.contact-info-item:last-child { margin-bottom: 0; }
+.contact-info-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.contact-info-text h6 { font-weight: 800; color: var(--secondary); margin: 0 0 2px; }
+.contact-info-text p  { font-size: 0.88rem; color: var(--gray-600); margin: 0; }
+
+/* Contact Form Card (red background) */
+.contact-form-card {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-card-hover);
+}
+.contact-form-input {
+  background: rgba(255,255,255,0.15) !important;
+  border-color: rgba(255,255,255,0.3) !important;
+  color: #fff !important;
+}
+.contact-form-input::placeholder { color: rgba(255,255,255,0.55) !important; }
+.contact-form-input:focus {
+  background: rgba(255,255,255,0.22) !important;
+  border-color: rgba(255,255,255,0.6) !important;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15) !important;
+  color: #fff !important;
+}
+.contact-form-card .file-upload-area {
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.1);
+}
+.contact-form-card .file-upload-area:hover,
+.contact-form-card .file-upload-area.dragover {
+  border-color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.18);
+}
+.contact-form-card .file-upload-area i,
+.contact-form-card .file-upload-area p { color: rgba(255,255,255,0.8); }
+
+/* File Upload Area */
+.file-upload-area {
+  border: 2px dashed var(--gray-200);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: var(--gray-50);
+}
+.file-upload-area:hover,
+.file-upload-area.dragover {
+  border-color: var(--primary);
+  background: #fff5f5;
+}
+.file-upload-area i { font-size: 2rem; color: var(--gray-600); margin-bottom: 8px; display: block; }
+.file-upload-area p { font-size: 0.88rem; color: var(--gray-600); margin: 0; }
+#file-list { margin-top: 12px; }
+.file-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gray-100);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  margin: 4px 4px 0 0;
+}
+.file-chip button {
+  background: none;
+  border: none;
+  color: var(--gray-600);
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0;
+  line-height: 1;
+}
+.file-chip button:hover { color: var(--primary); }
+
+/* Success Banner */
+#form-success {
+  display: none;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+}
+#form-success.show { display: block; }
+
+/* Map */
+.map-container {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.map-container iframe { display: block; }
+
+/* ════════════════════════════════════════════════════
+   OFERTAS (Offers)
+   ════════════════════════════════════════════════════ */
+/* Specials badge */
+.specials-badge {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 14px;
+}
+
+/* Load more button */
+#load-more-btn {
+  display: none;
+  margin: 32px auto 0;
+}
+#load-more-btn.show { display: block; }
+
+/* Deals count badge */
+.deals-count {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  margin-bottom: 20px;
+}
+
+/* ════════════════════════════════════════════════════
+   404 PAGE
+   ════════════════════════════════════════════════════ */
+.error-page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+}
+.error-number {
+  font-size: clamp(6rem, 20vw, 10rem);
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 0;
+}
+.error-page h2 { font-weight: 800; color: var(--secondary); }
+.error-page p { color: var(--gray-600); }

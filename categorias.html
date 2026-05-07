@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Categorías | Mega Fresh Carolina — El Mejor Supermercado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explora las categorías de productos en Mega Fresh Carolina: congelados, lácteos, higiene, limpieza, cereales y más. Carolina, Puerto Rico.">
+
+  <link href="img/favicon.png" rel="icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css?v=9" rel="stylesheet">
+  <link href="css/variables.css?v=9" rel="stylesheet">
+  <link href="css/base.css?v=9" rel="stylesheet">
+  <link href="css/components.css?v=9" rel="stylesheet">
+  <link href="css/responsive.css?v=9" rel="stylesheet">
+</head>
+<body>
+
+<!-- Spinner -->
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+  <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Cargando...</span></div>
+</div>
+
+<!-- Search Overlay -->
+<div id="search-overlay" role="dialog" aria-modal="true" aria-label="Buscar productos">
+  <button class="btn-close-search" id="close-search" aria-label="Cerrar búsqueda">&times;</button>
+  <div class="search-inner">
+    <input type="search" id="search-input" placeholder="Buscar productos, categorías..." autocomplete="off" aria-label="Buscar">
+    <div id="search-results" role="listbox"></div>
+  </div>
+</div>
+
+<!-- Top Bar -->
+<div class="top-bar d-none d-lg-flex justify-content-between align-items-center px-5">
+  <small><i class="fa fa-map-marker-alt me-2"></i>24 Calle Yunquecito, Carolina, PR 00987 &nbsp;|&nbsp; <i class="fa fa-phone-alt me-2"></i>+1 787-257-8050</small>
+  <small><i class="fa fa-clock me-2"></i>Lun–Dom: 6:00 am – 9:00 pm &nbsp;|&nbsp; <i class="fa fa-envelope me-2"></i>elmejorsupermercado1&#64;gmail.com</small>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg py-lg-0 px-lg-5 sticky-top" aria-label="Navegación principal">
+  <a href="index.html" class="navbar-brand ms-4 ms-lg-0" aria-label="Mega Fresh Carolina">
+    <div class="mega-fresh-logo">
+      <img src="img/megaFreshSmallLogo.jpg" alt="Mega Fresh" class="navbar-logo-img" width="80" height="44">
+      <div class="logo-text-block">
+        <span class="logo-subtitle">Supermercados</span>
+        <span class="logo-location">Carolina, PR</span>
+      </div>
+    </div>
+  </a>
+  <div class="d-flex align-items-center gap-2 ms-auto me-3 d-lg-none">
+    <button class="btn-search-nav" id="open-search-mobile" aria-label="Buscar"><i class="fa fa-search"></i></button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto p-4 p-lg-0">
+      <a href="index.html"      class="nav-item nav-link">Inicio</a>
+      <a href="nosotros.html"   class="nav-item nav-link">Nosotros</a>
+      <a href="categorias.html" class="nav-item nav-link active" aria-current="page">Categorías</a>
+      <a href="ofertas.html"    class="nav-item nav-link">Ofertas</a>
+      <a href="contacto.html"   class="nav-item nav-link">Contacto</a>
+      <a href="tv.html"         class="nav-item nav-link nav-tv-link">&#128250; TV</a>
+    </div>
+    <button class="btn-search-nav d-none d-lg-block ms-2 me-3" id="open-search" aria-label="Buscar"><i class="fa fa-search"></i></button>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header mb-5">
+  <div class="container">
+    <h1 class="display-3 mb-3">Nuestras Categorías</h1>
+    <nav aria-label="Ruta de navegación">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Categorías</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- Categories Grid -->
+<section class="section-py">
+  <div class="container">
+    <div class="section-header text-center mx-auto mb-5" style="max-width:600px;">
+      <h2 class="display-5">Todo Lo Que Necesitas</h2>
+      <p class="text-muted mt-3">Selecciona una categoría para ver los productos disponibles esta semana</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6 col-md-6 animate-on-scroll animate-delay-1">
+        <a href="ofertas.html?cat=Productos+Congelados" class="category-card">
+          <div class="category-card-img-wrap"><img src="img/congelados.gif" alt="Sodas, Jugos y Congelados" loading="lazy" decoding="async"></div>
+          <div class="category-card-body">
+            <h4>Sodas, Jugos y Congelados</h4>
+            <p>Selección completa de bebidas y productos congelados.</p>
+            <span class="cat-link">Ver productos &rarr;</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-6 col-md-6 animate-on-scroll animate-delay-2">
+        <a href="ofertas.html?cat=Lacteos+y+Derivados" class="category-card">
+          <div class="category-card-img-wrap"><img src="img/neveras.gif" alt="Lácteos y Proteínas" loading="lazy" decoding="async"></div>
+          <div class="category-card-body">
+            <h4>Lácteos y Proteínas</h4>
+            <p>Leche, quesos, proteínas y más. Frescos del día, siempre.</p>
+            <span class="cat-link">Ver productos &rarr;</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-6 col-md-6 animate-on-scroll animate-delay-3">
+        <a href="ofertas.html?cat=Limpieza" class="category-card">
+          <div class="category-card-img-wrap"><img src="img/limpieza.gif" alt="Artículos del Hogar" loading="lazy" decoding="async"></div>
+          <div class="category-card-body">
+            <h4>Artículos del Hogar</h4>
+            <p>Limpieza del hogar y variedad de productos esenciales.</p>
+            <span class="cat-link">Ver productos &rarr;</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-6 col-md-6 animate-on-scroll animate-delay-1">
+        <a href="ofertas.html?cat=Cuidado+Personal" class="category-card">
+          <div class="category-card-img-wrap"><img src="img/hygiene.gif" alt="Higiene Personal" loading="lazy" decoding="async"></div>
+          <div class="category-card-body">
+            <h4>Higiene Personal</h4>
+            <p>Múltiples selecciones de productos de higiene personal.</p>
+            <span class="cat-link">Ver productos &rarr;</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-6 col-md-6 animate-on-scroll animate-delay-2">
+        <a href="ofertas.html?cat=Cereales" class="category-card">
+          <div class="category-card-img-wrap"><img src="img/grains.gif" alt="Cereales, Galletas y Jugos" loading="lazy" decoding="async"></div>
+          <div class="category-card-body">
+            <h4>Cereales, Galletas y Jugos</h4>
+            <p>Amplia variedad de cereales, galletas y jugos refrigerados.</p>
+            <span class="cat-link">Ver productos &rarr;</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-6 col-md-6 animate-on-scroll animate-delay-3">
+        <a href="ofertas.html" class="category-card">
+          <div class="category-card-img-wrap"><img src="img/auto.gif" alt="Mantenimiento Automotriz" loading="lazy" decoding="async"></div>
+          <div class="category-card-body">
+            <h4>Mantenimiento Automotriz</h4>
+            <p>Limpieza de autos con todo tipo de aceite lubricante.</p>
+            <span class="cat-link">Ver productos &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Band -->
+<div class="cta-band">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-md-7">
+        <h2 class="display-5">¿No Encuentras Lo Que Buscas?</h2>
+        <p class="mb-0">Escríbenos y te ayudamos. En Mega Fresh Carolina estamos para servirte.</p>
+      </div>
+      <div class="col-md-5 text-md-end">
+        <a href="contacto.html" class="btn btn-secondary rounded-pill py-3 px-5 btn-lg">Contáctanos</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer pt-5">
+  <div class="container py-5">
+    <div class="row g-5">
+      <div class="col-lg-3 col-md-6">
+        <img src="img/megaFreshSmallLogo.jpg" alt="Mega Fresh Carolina" class="footer-logo-img" loading="lazy">
+        <span class="footer-brand-sub">Supermercados · Carolina, PR</span>
+        <p class="mt-2">Tu Supermercado de Comunidad.<br>Parte de la familia Mega Fresh.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h4>Nuestros Datos</h4>
+        <p><i class="fa fa-map-marker-alt me-3"></i>24 Calle Yunquecito, Carolina, PR 00987</p>
+        <p><i class="fa fa-phone-alt me-3"></i>+1 787-257-8050</p>
+        <p><i class="fa fa-envelope me-3"></i>elmejorsupermercado1&#64;gmail.com</p>
+        <p><i class="fa fa-clock me-3"></i>Lun–Dom: 6:00 am – 9:00 pm</p>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h4>Páginas</h4>
+        <a class="btn btn-link" href="index.html">Inicio</a>
+        <a class="btn btn-link" href="nosotros.html">Nosotros</a>
+        <a class="btn btn-link" href="categorias.html">Categorías</a>
+        <a class="btn btn-link" href="ofertas.html">Ofertas</a>
+        <a class="btn btn-link" href="contacto.html">Contacto</a>
+        <a class="btn btn-link" href="tv.html">Modo TV</a>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h4>Noticias y Ofertas</h4>
+        <p>Subscríbete para recibir los especiales y novedades de Mega Fresh Carolina.</p>
+        <div class="footer-newsletter">
+          <input class="form-control bg-transparent py-2 ps-3" type="email" placeholder="Tu Email" aria-label="Email newsletter" maxlength="100">
+          <button type="button" class="btn btn-primary px-3">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+          &copy; <script>document.write(new Date().getFullYear())</script> <a href="index.html">Mega Fresh Carolina</a>. Todos los derechos reservados.
+        </div>
+        <div class="col-md-6 text-center text-md-end">El Mejor Supermercado LLC.</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="back-to-top" aria-label="Volver arriba"><i class="bi bi-arrow-up"></i></a>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="js/data.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/search.js" defer></script>
+</body>
+</html>
